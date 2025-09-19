@@ -1,0 +1,68 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: grid;
+    grid-template-rows: auto 1fr auto; 
+    grid-template-areas: 
+        "header"
+        "main"
+        "footer";
+    min-height: 100vh;
+}
+
+header {
+    grid-area: header;
+    background-color: #e3e3e3;
+    padding: 1rem;
+    text-align: center;
+}
+
+main {
+    grid-area: main;
+    padding: 1.5rem;
+    background-color: #f9f9f9;
+}
+
+footer {
+    grid-area: footer;
+    background-color: #222;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+}
+
+.cabecera nav ul {
+    display: flex;
+    justify-content: space-around; 
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.cabecera nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+
+.cabecera nav ul li a:hover {
+    color: #0077cc;
+}
+
+#hero {
+    display: grid;
+    gap: 1rem;
+    text-align: center;
+
+}
+
+#catalogo {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+
+}
+
+#destacados{
+    text-align: center;
+}

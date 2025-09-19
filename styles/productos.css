@@ -1,0 +1,39 @@
+.productos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid #ddd;
+    padding: 1rem;
+    border-radius: 8px;
+    background: white;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.producto-img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 1rem;
+}
+
+.producto h3 {
+    margin: 0.5rem 0;
+}
+
+.producto p {
+    margin: 0.3rem 0;
+    text-align: center;
+}
+
+.producto button {
+    margin-top: auto; 
+    padding: 0.5rem 1rem;
+    border: none;
+    background: #0077cc;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.producto button:hover {
+    background: #005fa3;
+}
