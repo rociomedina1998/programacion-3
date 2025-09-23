@@ -1,3 +1,70 @@
 .contacts {
-    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem 1rem;
+    gap: 1rem;
+    background: #f5f5f5;
+    border-radius: 12px;
+    max-width: 600px;
+    margin: 2rem auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    font-family: Arial, sans-serif;
+}
+
+.contacts p {
+    margin: 0.5rem 0;
+    font-size: 1rem;
+    color: #333;
+}
+
+.contacts a {
+    color: #5E8CAB;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.2s;
+}
+
+.contacts a:hover {
+    color: #3f6d8a;
+    text-decoration: underline;
+}
+
+.cabecera {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+    background: #B77C52;
+    /* color secundario */
+    color: white;
+    text-align: center;
+}
+
+.cabecera nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 1rem;
+    margin-top: 0.5rem;
+}
+
+.cabecera nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.cabecera nav ul li a:hover {
+    text-decoration: underline;
+}
+
+footer {
+    text-align: center;
+    padding: 1rem;
+    background: #B3A799;
+    color: #333;
+    margin-top: 2rem;
 }
