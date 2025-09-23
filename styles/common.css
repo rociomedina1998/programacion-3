@@ -12,9 +12,14 @@ body {
 
 header {
     grid-area: header;
-    background-color: #e3e3e3;
-    padding: 1rem;
+    background: linear-gradient(90deg, #e3e3e3 60%, #f5f5f5 100%);
+    padding: 2rem 1rem;
     text-align: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    border-bottom: 2px solid #0077cc;
+    transition: background 0.3s, box-shadow 0.3s;
+    letter-spacing: 1px;
+    
 }
 
 main {
@@ -25,8 +30,8 @@ main {
 
 footer {
     grid-area: footer;
-    background-color: #222;
-    color: white;
+    background: linear-gradient(90deg, #e3e3e3 60%, #f5f5f5 100%);
+    font: bold;
     text-align: center;
     padding: 1rem;
 }
