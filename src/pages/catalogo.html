@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Productos | Punto y coma</title>
+    <link rel="stylesheet" href="../../styles/common.css" />
+    <link rel="stylesheet" href="../../styles/productos.css" />
+    <link rel="stylesheet" href="../../styles/carrito.css" />
+    <script src="../../src/js/productos.js"></script>
+    <script type="module" src="../js/catalogo.js"></script>
+    <script type="module" src="../js/carrito.js"></script>
+  </head>
+  <body>
+    <header class="cabecera">
+      <h1>Punto y coma</h1>
+      <nav class="containerNavbar">
+        <ul>
+          <li><a href="../../index.html">Inicio</a></li>
+          <li><a href="./catalogo.html">Productos</a></li>
+          <li><a href="./contactos.html">Contactos</a></li>
+        </ul>
+        <div class="containerCarrito">
+          <button id="btnCarrito">Carrito (0)</button>
+          <div id="carritoDropdown" class="dropdown-carrito oculto"></div>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <label for="categoria">Filtrar por categoría:</label>
+      <select id="categoria" name="categoria">
+        <option value="todas">Todas</option>
+        <option value="libreria">Librería</option>
+        <option value="papeleria">Papelería</option>
+        <option value="niños">Niños</option>
+        <option value="boligrafos">Bolígrafos</option>
+      </select>
+      <button type="submit">Aplicar</button>
+
+      <section id="catalogo"></section>
+    </main>
+
+    <footer>
+      <p>
+        &copy; 2025 Punto y coma. Instagram: @libreriapuntoycoma Cel:
+        03442-15508582
+      </p>
+    </footer>
+  </body>
+</html>

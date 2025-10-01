@@ -1,60 +1,81 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
-
-<head>
-    <link rel="icon" type="image/x-icon" href="./assets/favicon/favicon.ico">
-    <link rel="stylesheet" href="./styles/common.css">
-    <link rel="stylesheet" href="./styles/productos.css">
-    <meta charset="utf-8">
+  <head>
+    <link rel="icon" type="image/x-icon" href="./assets/favicon/favicon.ico" />
+    <link rel="stylesheet" href="./styles/common.css" />
+    <link rel="stylesheet" href="./styles/productos.css" />
+    <link rel="stylesheet" href="./styles/carrito.css" />
+    <script type="module" src="./src/js/carrito.js" defer></script>
+    <meta charset="utf-8" />
     <title>Inicio | Punto y coma</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <!-- header común -->
     <header class="cabecera">
-        <h1>Punto y coma</h1>
-        <nav>
-            <ul>
-                <li><a href="#">Inicio</a></li>
-                <li><a href="./pages/productos.html">Productos</a></li>
-                <li><a href="./pages/contactos.html">Contactos</a></li>
-            </ul>
-        </nav>
+      <h1>Punto y coma</h1>
+      <nav class="containerNavbar">
+        <ul>
+          <li><a href="#">Inicio</a></li>
+          <li><a href="./src/pages/catalogo.html">Productos</a></li>
+          <li><a href="./src/pages/contactos.html">Contactos</a></li>
+        </ul>
+        <div class="containerCarrito">
+          <button id="btnCarrito">🛒 Carrito (0)</button>
+          <div id="carritoDropdown" class="dropdown-carrito oculto"></div>
+        </div>
+      </nav>
     </header>
 
-    <main>
-        <section id="hero">
-            <h2>Bienvenidos a Punto y coma</h2>
-            <p>Productos seleccionados de <strong>librería</strong>, <strong>papelería</strong> y más.</p>
-        </section>
+    <main class="containerMain">
+      <section id="hero">
+        <h2>Bienvenidos a Punto y coma</h2>
+        <p>
+          Productos seleccionados de <strong>librería</strong>,
+          <strong>papelería</strong> y más.
+        </p>
+      </section>
 
-        <!-- Destacados -->
-        <h2>Destacados</h2>
-        <section id="destacados">
+      <!-- Destacados -->
+      <h2>Destacados</h2>
+      <section id="destacados">
+        <div
+          class="producto"
+          data-id="101"
+          data-categoria="papeleria"
+          data-cantidad="8"
+          data-precio="4.500"
+        >
+          <h3>Resma A4</h3>
+          <img src="./assets/img/hojas-a4.jpg" alt="Resma Autor A4" />
+          <p><strong>Precio: $4.500</strong></p>
+          <p>Descripción breve.</p>
+          <p>Categoría: libreria • Stock: 8</p>
+          <button type="button">Ver detalles</button>
+        </div>
 
-            <div class="producto" data-id="101" data-categoria="papeleria" data-cantidad="8" data-precio="4.500">
-                <h3>Resma A4</h3>
-                <img src="./assets/img/hojas-a4.jpg" alt="Resma Autor A4">
-                <p><strong>Precio: $4.500</strong></p>
-                <p>Descripción breve.</p>
-                <p>Categoría: libreria • Stock: 8</p>
-                <button type="button">Ver detalles</button>
-            </div>
-
-            <div class="producto" data-id="102" data-categoria="libreria" data-cantidad="12" data-precio="45.000">
-                <h3>Resaltadores pastel</h3>
-                <img src="./assets/img/resaltadores.jpg" alt="Seis resaltadores">
-                <p><strong>Precio: $45.000</strong></p>
-                <p>Aprovecha la promocion.</p>
-                <p>Categoría: papeleria • Stock: 12</p>
-                <button type="button">Ver detalles</button>
-            </div>
-        </section>
+        <div
+          class="producto"
+          data-id="102"
+          data-categoria="libreria"
+          data-cantidad="12"
+          data-precio="45.000"
+        >
+          <h3>Resaltadores pastel</h3>
+          <img src="./assets/img/resaltadores.jpg" alt="Seis resaltadores" />
+          <p><strong>Precio: $45.000</strong></p>
+          <p>Aprovecha la promocion.</p>
+          <p>Categoría: papeleria • Stock: 12</p>
+          <button type="button">Ver detalles</button>
+        </div>
+      </section>
     </main>
     <!-- footer común -->
     <footer>
-        <p>&copy; 2025 Punto y coma. Instagram: @libreriapuntoycoma Cel: 03442-15508582</p>
+      <p>
+        &copy; 2025 Punto y coma. Instagram: @libreriapuntoycoma Cel:
+        03442-15508582
+      </p>
     </footer>
-</body>
-
+  </body>
 </html>

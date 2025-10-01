@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const categoriaProducto = producto.getAttribute('data-categoria');
 
             if (categoriaSeleccionada === 'todas' || categoriaProducto === categoriaSeleccionada) {
-                producto.style.display = 'block';
+                producto.style.display = 'flex';
             } else {
                 producto.style.display = 'none';
             }

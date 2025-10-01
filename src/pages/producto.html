@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Productos | Punto y coma</title>
+    <link rel="stylesheet" href="../../styles/common.css" />
+    <link rel="stylesheet" href="../../styles/productos.css" />
+    <link rel="stylesheet" href="../../styles/carrito.css" />
+  </head>
+  <body>
+    <header class="cabecera">
+      <h1>Punto y coma</h1>
+      <nav class="containerNavbar">
+        <ul>
+          <li><a href="../../index.html">Inicio</a></li>
+          <li><a href="./catalogo.html">Productos</a></li>
+          <li><a href="./contactos.html">Contactos</a></li>
+        </ul>
+        <div class="containerCarrito">
+          <button id="btnCarrito">Carrito (0)</button>
+          <div id="carritoDropdown" class="dropdown-carrito oculto"></div>
+        </div>
+      </nav>
+    </header>
+
+    <main id="detalleProducto" class="detalle-container">
+      <!-- Aquí se renderiza el producto -->
+    </main>
+
+    <script type="module" src="../js/producto.js"></script>
+  </body>
+</html>

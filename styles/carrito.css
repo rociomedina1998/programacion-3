@@ -1,0 +1,56 @@
+.dropdown-carrito {
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  max-height: 325px;
+  width: 100%;
+  max-width: 150px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  position: absolute;
+  top: 140px;
+  right: 20px;
+  overflow-y: auto;
+
+  /* Animación */
+  opacity: 0;
+  transform: translateY(-10px);
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.dropdown-carrito.mostrar {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.dropdown-carrito p {
+  color: black;
+}
+
+.dropdown-carrito ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  flex-direction: column;
+}
+
+.dropdown-carrito li {
+  margin-bottom: 8px;
+  font-size: 14px;
+  color: black;
+  height: 50px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  text-align: left;
+}
+
+.dropdown-carrito button {
+  cursor: pointer;
+}
