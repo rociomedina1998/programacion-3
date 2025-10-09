@@ -8,6 +8,8 @@
     <script type="module" src="./src/js/carrito.js" defer></script>
     <script type="module" src="./src/js/producto.js" defer></script>
     <meta charset="utf-8" />
+    <meta name="description" content="Punto y coma: librería y papelería con productos seleccionados en resmas, resaltadores y más.">
+    <meta name="keywords" content="librería, papelería, resmas, resaltadores, útiles escolares, Punto y coma">
     <title>Inicio | Punto y coma</title>
   </head>
 
@@ -21,7 +23,7 @@
           <li><a href="./src/pages/contactos.html">Contactos</a></li>
         </ul>
         <div class="containerCarrito">
-          <button id="btnCarrito">🛒 Carrito (0)</button>
+          <button id="btnCarrito" aria-label="Abrir carrito de compras">🛒 Carrito (0)</button>
           <div id="carritoDropdown" class="dropdown-carrito oculto"></div>
         </div>
       </nav>
@@ -50,7 +52,8 @@
           <p><strong>Precio: $4.500</strong></p>
           <p>Descripción breve.</p>
           <p>Categoría: libreria • Stock: 8</p>
-          <button type="button">Ver detalles</button>
+          <button type="button" aria-label="Ver detalles del producto Resma A4">Ver detalles</button>
+
         </div>
 
         <div
@@ -65,7 +68,8 @@
           <p><strong>Precio: $45.000</strong></p>
           <p>Aprovecha la promocion.</p>
           <p>Categoría: papeleria • Stock: 12</p>
-          <button type="button">Ver detalles</button>
+          <button type="button" aria-label="Ver detalles del producto Resaltadores Pastel">Ver detalles</button>
+
         </div>
       </section>
     </main>
