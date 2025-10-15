@@ -13,7 +13,9 @@ export function renderCarrito() {
 
   carrito.forEach((item) => {
     const li = document.createElement("li");
-    li.textContent = `${item.nombre} x${item.cantidad} - $${item.precio * item.cantidad}`;
+    li.textContent = `${item.nombre} x${item.cantidad} - $${
+      item.precio * item.cantidad
+    }`;
 
     // Botón eliminar ❌
     const btnEliminar = document.createElement("button");
@@ -101,8 +103,20 @@ document.addEventListener("click", (e) => {
   }
 
   // 2. Redirigir a detalle si hizo click en la tarjeta (excepto el botón)
-  if (e.target.closest(".producto") && !e.target.classList.contains("addCardBtn")) {
+  if (
+    e.target.closest(".producto") &&
+    !e.target.classList.contains("addCardBtn")
+  ) {
     const id = e.target.closest(".producto").dataset.id;
+    if (
+      window.location.pathname.includes("index") ||
+      window.location.pathname === "/" ||
+      window.location.pathname.trim() === ""
+    ) {
+      window.location.href = `./src/pages/producto.html?id=${id}`;
+
+      return;
+    }
     window.location.href = `../pages/producto.html?id=${id}`;
   }
 });
