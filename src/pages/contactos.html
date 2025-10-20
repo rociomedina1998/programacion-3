@@ -11,6 +11,9 @@
     <link rel="stylesheet" href="../../styles/carrito.css" />
     <script type="module" src="./src/js/carrito.js" defer></script>
     <script type="module" src="../js/carrito.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js">
   </head>
 
   <body>
@@ -31,12 +34,29 @@
 
     <main>
       <section class="contacts">
-        <p>Contactanos en nuestras redes sociales.</p>
-        <p>Cel: 03442-15508582</p>
-        <a href="http://wa.me/5493442508582" target="_blank"
-          >Nuestro WhatsApp</a
-        >
-        <p>Instagram: @libreriapuntoycoma</p>
+        <h1>Contacto</h1>
+  <div class="container">
+<p>¿Tenes alguna duda o consulta? Completa el formulario y te responderemos a la brevedad</p>
+<form action="#">
+<div class="form-group">
+  <div class="d-flex flex-column align-items-start">
+    <label for="name" class="form-label">Nombre:</label>
+    <input id="name" type="text" class="form-control"  placeholder="Ingrese su nombre"/>
+  </div>
+  <div class="d-flex flex-column align-items-start">
+
+    <label for="email" class="form-label">Email:</label>
+    <input type="email" class="form-control"
+    id="email" placeholder="Ingrese su email"
+    name="email"> 
+  </div>
+</div>
+<button type="submit" class="btn
+btn-default">
+Ingresar
+</button>
+</form>
+</div>
       </section>
     </main>
 
@@ -44,7 +64,8 @@
       <p>
         &copy; 2025 Punto y coma. Instagram: @libreriapuntoycoma Cel:
         03442-15508582
-      </p>
-    </footer>
+        <a href="http://wa.me/5493442508582" target="_blank"
+          >Nuestro WhatsApp</a>
+    <footer>
   </body>
 </html>
