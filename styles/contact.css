@@ -1,16 +1,8 @@
 .contacts {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 3rem 1rem;
     gap: 1rem;
-    background: #f5f5f5;
+    background: #d9d9d9;
     border-radius: 12px;
-    max-width: 600px;
-    margin: 2rem auto;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: center;
+    box-shadow: 0 4px 8px rgb(6 6 6 / 74%);
     font-family: Arial, sans-serif;
 }
 
@@ -36,7 +28,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 1rem;
     background: #B77C52;
     /* color secundario */
     color: white;
@@ -63,7 +54,6 @@
 
 footer {
     text-align: center;
-    padding: 1rem;
     background: #B3A799;
     color: #333;
     margin-top: 2rem;
