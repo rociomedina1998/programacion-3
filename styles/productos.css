@@ -70,9 +70,6 @@
   }
 
 .cabecera {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     padding: 1rem;
     background: #B77C52;
     /* color secundario */

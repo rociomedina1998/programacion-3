@@ -16,76 +16,104 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   </head>
 
-  <body>
-    <header class="cabecera">
-      <h1>Punto y coma</h1>
-        <div class="containerCarrito">
-          <button id="btnCarrito">🛒 Carrito (0)</button>
-          <div id="carritoDropdown" class="dropdown-carrito oculto"></div>
-        </div>
-      </nav>
-      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">Punto y coma</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item"><a class="nav-link" href="../../index.html">Inicio</a></li>
-        <li class="nav-item"><a class="nav-link" href="./catalogo.html">Productos</a></li>
-        <li class="nav-item"><a class="nav-link active" href="./contactos.html">Contactos</a></li>
-      </ul>
-    </div>
- 
+  <body class="container-fluid">
+        <header class="cabecera row d-flex flex-clomun justify-content-center">
+            <div class="col-12">
+                <h1>Punto y Coma</h1>
+                <div class="row h-25">
+                    <nav class="col-8 navbar navbar-expand-lg">
+                        <div class="container-fluid">
+                            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+                            <div class="collapse navbar-collapse" id="navbarNav">
+                                <ul class="navbar-nav flex-row justify-content-evenly">
+                                    <li class="nav-item">
+                                        <a class="nav-link " href="../../index.html">Inicio</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="./producto.html">Productos</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link active" aria-current="page" href="#">Contactos</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </nav>
+                    <div class="col-4 containerCarrito">
+                        <button id="btnCarrito">Carrito (0)</button>
+                        <div id="carritoDropdown" class="dropdown-carrito oculto"></div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <main class="row">
+            <section class="col-8 m-auto h-100 d-flex flex-column align-items-center text-center">
+                <h2>Contacto</h2>
+                <div class="container-fluid">
+                    <p class="fs-5"> ¿Tenes alguna duda o consulta? Completa el formulario y te responderemos a la brevedad</p>
+                    <form class="container-fluid d-flex flex-column align-items-center" action="">
+                        <div class="row-cols-md-auto g-2">
+                            <div class="form-floating">
+                                <input type="email" class="form-control" id="inputNombre" placeholder="name@example.com">
+                                <label for="inputNombre">Nombre</label>
+                            </div>
+                            <div class="form-floating">
+                                <input type="email" class="form-control" id="inputEmail" placeholder="name@example.com">
+                                <label for="inputEmail">Email</label>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </section>
+        </main>
+        <footer class="row"></footer>
+<!--    <main>-->
+<!--      <section class="contacts">-->
+<!--        <h1>Contacto</h1>-->
+<!--  <div class="container">-->
+<!--<p>¿Tenes alguna duda o consulta? Completa el formulario y te responderemos a la brevedad</p>-->
+<!--<form action="#">-->
+<!--<div class="form-group d-flex">-->
+<!--  <div class="d-flex flex-column col-sm col-md row-lg align-items-start">-->
+<!--    <label for="name" class="form-label">Nombre:</label>-->
+<!--    <input id="name" type="text" class="form-control"  placeholder="Ingrese su nombre"/>-->
+<!--  </div>-->
+<!--  <div class="d-flex flex-column col-sm col-md row-lg align-items-start">-->
 
-    </header>
+<!--    <label for="email" class="form-label">Email:</label>-->
+<!--    <input type="email" class="form-control"-->
+<!--    id="email" placeholder="Ingrese su email"-->
+<!--    name="email"> -->
+<!--  </div>-->
+<!--</div>-->
+<!--<button type="submit" class="btn btn-primary">Enviar</button>-->
+<!--</form>-->
+<!--</div>-->
+<!--<div class="mb-3">-->
+<!--  <label for="message" class="form-label">Mensaje:</label>-->
+<!--  <textarea id="message" class="form-control" rows="4" placeholder="Escribí tu consulta..."></textarea>-->
+<!--</div>-->
+<!-- </div>-->
+<!--</nav>-->
+<!--<div id="mensajeExito" class="alert alert-success mt-3 d-none" role="alert">-->
+<!--  ¡Tu mensaje fue enviado con éxito!-->
+<!--</div>-->
 
-    <main>
-      <section class="contacts">
-        <h1>Contacto</h1>
-  <div class="container">
-<p>¿Tenes alguna duda o consulta? Completa el formulario y te responderemos a la brevedad</p>
-<form action="#">
-<div class="form-group d-flex">
-  <div class="d-flex flex-column col-sm col-md row-lg align-items-start">
-    <label for="name" class="form-label">Nombre:</label>
-    <input id="name" type="text" class="form-control"  placeholder="Ingrese su nombre"/>
-  </div>
-  <div class="d-flex flex-column col-sm col-md row-lg align-items-start">
+<!--<script>-->
+<!--  const form = document.querySelector("form");-->
+<!--  const mensajeExito = document.getElementById("mensajeExito");-->
 
-    <label for="email" class="form-label">Email:</label>
-    <input type="email" class="form-control"
-    id="email" placeholder="Ingrese su email"
-    name="email"> 
-  </div>
-</div>
-<button type="submit" class="btn btn-primary">Enviar</button>
-</form>
-</div>
-<div class="mb-3">
-  <label for="message" class="form-label">Mensaje:</label>
-  <textarea id="message" class="form-control" rows="4" placeholder="Escribí tu consulta..."></textarea>
-</div>
- </div>
-</nav>
-<div id="mensajeExito" class="alert alert-success mt-3 d-none" role="alert">
-  ¡Tu mensaje fue enviado con éxito!
-</div>
+<!--  form.addEventListener("submit", (e) => {-->
+<!--    e.preventDefault(); -->
+<!--    mensajeExito.classList.remove("d-none"); -->
+<!--    form.reset(); -->
+<!--  });-->
+<!--</script>-->
 
-<script>
-  const form = document.querySelector("form");
-  const mensajeExito = document.getElementById("mensajeExito");
-
-  form.addEventListener("submit", (e) => {
-    e.preventDefault(); 
-    mensajeExito.classList.remove("d-none"); 
-    form.reset(); 
-  });
-</script>
-
-      </section>
-    </main>
+<!--      </section>-->
+<!--    </main>-->
 
     <footer>
       <p>
