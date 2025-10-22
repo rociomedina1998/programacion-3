@@ -42,6 +42,11 @@ footer {
   padding: 1rem;
 }
 
+.destacadosHome {
+  max-height: 380px;
+  overflow: hidden; /* Oculta el resto del texto */
+}
+
 .cabecera nav ul {
   display: flex;
   justify-content: space-around;
