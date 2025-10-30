@@ -2,5 +2,5 @@
 
 import cargarCatalogo from "./catalogo.js";
 
-const productos = cargarCatalogo();
+const productos = await cargarCatalogo();
 console.log(productos)

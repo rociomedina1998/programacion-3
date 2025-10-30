@@ -14,26 +14,19 @@ async function cargarCatalogo() {
     const products = await GetCatalogo();
     console.log(products);
 
-    const productos =
-      products?.results?.map((item) => ({
-        id: item.id,
-        nombre: item.title.split(";")[0].trim(),
-        img: item?.formats?.["image/jpeg"] || "placeholder.jpg",
-        precio: (Math.random() * 1000 + 50).toFixed(2), // Precio aleatorio entre 50 y 1050
-        descripcion: item?.sumaries?.[0],
-        categoria:
-          item?.bookshelves?.[0].replace("Category: ", "").trim() || "General.",
-        stock: Math.floor(Math.random() * 20) + 1, // Stock aleatorio entre 1 y 20
-        author: item?.authors?.[0]?.name || "Desconocido",
-      })) || [];
+    // Detectar si hay path o no
+    const path = window.location.pathname;
+    console.log("Path actual:", path);
 
-    console.log(productos);
+    // Si no hay path (o es "/"), mostrar solo 5 productos
+    const productosAMostrar =
+      path === "/" || path === "" || path.includes("index") ? products.slice(0, 5) : products;
 
     // Ocultar el spinner
     loader.style.display = "none";
     cards.style.display = "grid";
 
-    productos.forEach((prod) => {
+    productosAMostrar.forEach((prod) => {
       const productoDiv = document.createElement("div");
       productoDiv.classList.add("producto");
       productoDiv.setAttribute("data-id", prod.id);
@@ -50,11 +43,12 @@ async function cargarCatalogo() {
           <p>• Autor: ${prod.author}</p>
           <p>• Stock: ${prod.stock}</p>
         </div>
-        <button type="button" class="addCardBtn" data-id="${prod.id}">Agregar al carrito</button>
+        <button type="button" class="addCardBtn" data-id="${prod.id}">
+          Agregar al carrito
+        </button>
       `;
 
       cards.appendChild(productoDiv);
-      return productoDiv.innerHTML;
     });
   } catch (error) {
     loader.style.display = "none";
@@ -62,6 +56,7 @@ async function cargarCatalogo() {
     console.error("Error al cargar el catálogo:", error);
   }
 }
+
 cargarCatalogo();
 
 export default cargarCatalogo;
