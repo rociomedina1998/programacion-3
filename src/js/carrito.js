@@ -1,5 +1,17 @@
 // === Carrito ===
-// Función para renderizar el carrito dentro del dropdown
+
+// Obtener carrito desde localStorage
+function obtenerCarrito() {
+  const data = localStorage.getItem("carrito");
+  return data ? JSON.parse(data) : [];
+}
+
+// Guardar carrito actualizado
+function guardarCarrito(carrito) {
+  localStorage.setItem("carrito", JSON.stringify(carrito));
+}
+
+// Renderizar carrito dentro del dropdown
 export function renderCarrito() {
   const dropdown = document.querySelector("#carritoDropdown");
   const btnCarrito = document.querySelector("#btnCarrito");
@@ -13,10 +25,7 @@ export function renderCarrito() {
 
   carrito.forEach((item) => {
     const li = document.createElement("li");
-    li.style.display = "flex";
-    li.style.alignItems = "center";
-    li.style.justifyContent = "space-between";
-    li.style.marginBottom = "6px";
+    li.className = "cart-item";
 
     // Info del producto
     const info = document.createElement("span");
@@ -24,44 +33,48 @@ export function renderCarrito() {
 
     // Controles de cantidad
     const controles = document.createElement("div");
-    controles.style.display = "flex";
-    controles.style.alignItems = "center";
-    controles.style.gap = "6px";
+    controles.className = "cart-controls";
 
     // Botón ➖
     const btnMenos = document.createElement("button");
     btnMenos.textContent = "−";
-    btnMenos.style.padding = "2px 6px";
-    btnMenos.style.cursor = "pointer";
-    btnMenos.addEventListener("click", () => {
+    btnMenos.className = "cart-btn";
+    btnMenos.addEventListener("click", (e) => {
+      e.stopPropagation();
       if (item.cantidad > 1) {
         item.cantidad -= 1;
-        localStorage.setItem(item.id, JSON.stringify(item));
-        renderCarrito();
-      }
+      } else return;
+      guardarCarrito(carrito);
+      renderCarrito();
     });
 
     // Cantidad
     const cantidadEl = document.createElement("span");
     cantidadEl.textContent = item.cantidad;
+    cantidadEl.className = "cart-qty";
 
     // Botón ➕
     const btnMas = document.createElement("button");
     btnMas.textContent = "+";
-    btnMas.style.padding = "2px 6px";
-    btnMas.style.cursor = "pointer";
-    btnMas.addEventListener("click", () => {
+    btnMas.className = "cart-btn";
+    btnMas.addEventListener("click", (e) => {
+      e.stopPropagation();
       item.cantidad += 1;
-      localStorage.setItem(item.id, JSON.stringify(item));
+      guardarCarrito(carrito);
       renderCarrito();
     });
 
     // Botón eliminar ❌
     const btnEliminar = document.createElement("button");
     btnEliminar.textContent = "❌";
-    btnEliminar.style.marginLeft = "10px";
-    btnEliminar.style.cursor = "pointer";
-    btnEliminar.addEventListener("click", () => eliminarDelCarrito(item.id));
+    btnEliminar.className = "cart-remove";
+    btnEliminar.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const index = carrito.findIndex((p) => p.id === item.id);
+      carrito.splice(index, 1);
+      guardarCarrito(carrito);
+      renderCarrito();
+    });
 
     // Armar estructura
     controles.appendChild(btnMenos);
@@ -82,79 +95,42 @@ export function renderCarrito() {
 
     const totalEl = document.createElement("p");
     totalEl.textContent = `Total: $${total}`;
-    totalEl.style.marginTop = "10px";
+    totalEl.className = "cart-total";
     dropdown.appendChild(totalEl);
 
-    // === Botón Vaciar Carrito ===
+    // Botón Vaciar carrito 🗑️
     const btnVaciar = document.createElement("button");
     btnVaciar.textContent = "🗑️ Vaciar carrito";
-    btnVaciar.style.marginTop = "8px";
-    btnVaciar.style.padding = "6px 10px";
-    btnVaciar.style.cursor = "pointer";
-    btnVaciar.style.background = "#f44336";
-    btnVaciar.style.color = "#fff";
-    btnVaciar.style.border = "none";
-    btnVaciar.style.borderRadius = "6px";
-
-    btnVaciar.addEventListener("click", () => {
-      vaciarCarrito();
+    btnVaciar.className = "btn-vaciar";
+    btnVaciar.addEventListener("click", (e) => {
+      e.stopPropagation();
+      if (confirm("¿Seguro que querés vaciar el carrito?")) {
+        localStorage.removeItem("carrito");
+        renderCarrito();
+      }
     });
 
     dropdown.appendChild(btnVaciar);
   } else {
-    dropdown.innerHTML = "<p>Carrito vacío</p>";
+    dropdown.innerHTML = "<p class='cart-empty'>Carrito vacío</p>";
   }
 
-  // Actualizar el botón con la cantidad de items
-  btnCarrito.textContent = `Carrito (${totalItems})`;
+  // Actualizar número en el botón del carrito
+  btnCarrito.innerHTML = `<span class="cart-count">${totalItems}</span>`;
 }
 
-// Obtener carrito desde localStorage
-function obtenerCarrito() {
-  const keys = Object.keys(localStorage);
-  const carrito = [];
-
-  keys.forEach((key) => {
-    const prod = JSON.parse(localStorage.getItem(key));
-    if (prod && prod.id) {
-      carrito.push(prod);
-    }
-  });
-
-  return carrito;
-}
-
-// Guardar producto en localStorage
+// Agregar producto al carrito
 export function agregarAlCarrito(producto) {
-  const prodExistente = localStorage.getItem(producto.id);
+  const carrito = obtenerCarrito();
+  const prodExistente = carrito.find((p) => p.id === producto.id);
 
   if (prodExistente) {
-    const prodParse = JSON.parse(prodExistente);
-    prodParse.cantidad += 1;
-    localStorage.setItem(producto.id, JSON.stringify(prodParse));
+    prodExistente.cantidad += 1;
   } else {
-    const nuevoProd = {
-      id: producto.id,
-      nombre: producto.nombre,
-      precio: producto.precio,
-      cantidad: 1,
-    };
-    localStorage.setItem(producto.id, JSON.stringify(nuevoProd));
+    carrito.push({ ...producto, cantidad: 1 });
   }
 
-  renderCarrito();
-}
-
-// Eliminar producto individual
-function eliminarDelCarrito(id) {
-  localStorage.removeItem(id);
-  renderCarrito();
-}
-
-// Vaciar carrito completo
-function vaciarCarrito() {
-  const carrito = obtenerCarrito();
-  carrito.forEach((item) => localStorage.removeItem(item.id));
+  guardarCarrito(carrito);
   renderCarrito();
 }
 
@@ -171,7 +147,7 @@ document.addEventListener("click", (e) => {
     };
 
     agregarAlCarrito(producto);
-    return; // salgo acá, así no dispara la lógica de detalle
+    return;
   }
 
   // 2. Redirigir a detalle si hizo click en la tarjeta (excepto el botón)
@@ -193,9 +169,21 @@ document.addEventListener("click", (e) => {
 });
 
 // Toggle mostrar/ocultar carrito con animación
-document.querySelector("#btnCarrito").addEventListener("click", () => {
+const btnCarritoEl = document.querySelector("#btnCarrito");
+btnCarritoEl.addEventListener("click", (e) => {
+  e.stopPropagation();
   const dropdown = document.querySelector("#carritoDropdown");
   dropdown.classList.toggle("mostrar");
+});
+
+// Cerrar carrito si se hace clic fuera
+document.addEventListener("click", (e) => {
+  const dropdown = document.querySelector("#carritoDropdown");
+  const btnCarrito = document.querySelector("#btnCarrito");
+
+  if (!dropdown.classList.contains("mostrar")) return;
+  if (dropdown.contains(e.target) || btnCarrito.contains(e.target)) return;
+  dropdown.classList.remove("mostrar");
 });
 
 // Render inicial
