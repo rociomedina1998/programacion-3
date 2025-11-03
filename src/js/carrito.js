@@ -100,7 +100,25 @@ export function renderCarrito() {
       vaciarCarrito();
     });
 
+    // === Botón Finalizar Compra ===
+    const btnFinalizar = document.createElement("button");
+    btnFinalizar.textContent = "Finalizar compra";
+    btnFinalizar.style.marginTop = "8px";
+    btnFinalizar.style.marginLeft = "8px";
+    btnFinalizar.style.padding = "6px 10px";
+    btnFinalizar.style.cursor = "pointer";
+    btnFinalizar.style.background = "#4CAF50";
+    btnFinalizar.style.color = "#fff";
+    btnFinalizar.style.border = "none";
+    btnFinalizar.style.borderRadius = "6px";
+
+    // Redirige a la página de finalización
+    btnFinalizar.addEventListener("click", () => {
+      window.location.href = "./src/pages/final_compra.html";
+    });
+
     dropdown.appendChild(btnVaciar);
+    dropdown.appendChild(btnFinalizar);
   } else {
     dropdown.innerHTML = "<p>Carrito vacío</p>";
   }
