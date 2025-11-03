@@ -9,8 +9,7 @@
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
   padding: 12px;
   position: absolute;
-  top: 140px;
-  right: 20px;
+  top: calc(100% + 20px);
   overflow-y: auto;
 
   opacity: 0;
