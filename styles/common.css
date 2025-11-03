@@ -40,6 +40,11 @@ footer {
   text-align: center;
 }
 
+.destacadosHome {
+  max-height: 380px;
+  overflow: hidden; /* Oculta el resto del texto */
+}
+
 .cabecera nav ul {
   display: flex;
   justify-content: space-around;
@@ -60,7 +65,7 @@ footer {
 
 #catalogo {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(5, minmax(250px, 1fr));
   gap: 1.5rem;
 }
 
