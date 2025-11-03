@@ -1,19 +1,15 @@
-.catalogo {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 1.5rem;
-  padding: 2rem;
-  justify-items: center;
-}
 
 .producto {
   display: flex;
-  max-height: 420px;
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
-  border: 1px solid #ddd;
+
+  width: 275px;
+  height: 350px;
   padding: 1rem;
+
+  border: 1px solid #ddd;
   border-radius: 12px;
   background: #fff;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);

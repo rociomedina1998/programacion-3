@@ -128,11 +128,13 @@
         }
 
         #destacados {
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 1.5rem;
+            .catalogo {
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 1.5rem;
+            }
         }
     }
 
@@ -146,15 +148,17 @@
 @media (max-width: 768px) {
     .body-container .header .navbar {
         /* Cambiar a columna en móvil */
-        flex-direction: column;
-        align-items: flex-start;
-        
+        min-height: 60px;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+
         /* Mostrar botón hamburguesa */
         .menu-toggle {
             display: flex;
             position: absolute;
             top: 50%;
-            left: 1rem;
             transform: translateY(-50%);
         }
 
@@ -178,7 +182,7 @@
             .navbar-item {
                 width: 100%;
                 text-align: center;
-                
+
                 a {
                     display: block;
                     padding: 0.75rem 1rem;
@@ -206,15 +210,15 @@
 @media (max-width: 480px) {
     .body-container .header {
         padding: 0.5rem;
-        
+
         .navbar {
             .menu-toggle {
                 left: 0.5rem;
             }
-            
+
             .containerCarrito {
                 right: 0.5rem;
-                
+
                 #btnCarrito {
                     padding: 0.4rem 0.8rem;
                     font-size: 0.9rem;
@@ -230,6 +234,7 @@
         opacity: 0;
         transform: translateY(-10px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);

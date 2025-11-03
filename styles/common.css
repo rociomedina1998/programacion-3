@@ -63,12 +63,6 @@ footer {
   color: #0077cc;
 }
 
-#catalogo {
-  display: grid;
-  grid-template-columns: repeat(5, minmax(250px, 1fr));
-  gap: 1.5rem;
-}
-
 #destacados {
   text-align: center;
 }
