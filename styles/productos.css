@@ -83,32 +83,6 @@
   background: #3f6d8a;
 }
 
-.cabecera {
-    padding: 1rem;
-    background: #B77C52;
-    /* color secundario */
-    color: white;
-    text-align: center;
-}
-
-.cabecera nav ul {
-  list-style: none;
-  padding: 0;
-  display: flex;
-  gap: 1rem;
-  margin-top: 0.5rem;
-}
-
-.cabecera nav ul li a {
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-.cabecera nav ul li a:hover {
-  text-decoration: underline;
-}
-
 /* Footer */
 footer {
   text-align: center;

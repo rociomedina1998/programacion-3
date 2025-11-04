@@ -19,22 +19,26 @@ if (producto) {
     <div class='containerTitle'>
       <h2 class='titlePageProd'>${producto.nombre}</h2>
     </div>
-    <div class='containerImg'>
-      <img src="${producto.img}" alt="${producto.nombre}">
-    </div>
-    <div class='containerPrice'>
-      <p><strong>Precio:</strong> $${producto.precio}</p>
-    </div>
     <div class='containerData'>
-      <p><em>Categoría:</em> ${producto.categoria}</p>
-      <p><em>Stock:</em> ${producto.stock}</p>
-      <p>Autor: ${producto.author}}</p>
+      <div class='containerImg'>
+        <img src="${producto.img}" alt="${producto.nombre}">
+      </div>
+      <div class='containerInfo'>
+        <div class='containerPrice'>
+          <p><strong>Precio:</strong> <span>$${producto.precio}</span></p>
+        </div>
+        <div class='containerData'>
+          <p><em>Categoría:</em> ${producto.categoria}</p>
+          <p><em>Stock:</em> ${producto.stock}</p>
+          <p>Autor: ${producto.author}}</p>
+        </div>
+        <div class='containerDescription'>
+          <p>${producto.descripcion ? producto.descripcion : "Descripción no disponible."}</p>
+        </div>
+        <div class='containerBtn'>
+      <button id="btnAgregar" class="addToCartButton">Agregar al carrito</button>
     </div>
-    <div class='containerDescription'>
-      <p>${producto.descripcion}</p>
-    </div>
-    <div class='containerBtn'>
-      <button id="btnAgregar">Agregar al carrito</button>
+      </div>
     </div>
   </div>
   `;
