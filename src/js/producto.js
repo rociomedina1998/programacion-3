@@ -41,18 +41,13 @@ if (producto) {
 
   // Evento para agregar al carrito
   document.getElementById("btnAgregar").addEventListener("click", () => {
-    // Obtener carrito actual
     const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
-
-    // Buscar si el producto ya está en el carrito
     const itemEnCarrito = carrito.find((item) => item.id === producto.id);
-
-    // Calcular cantidad total actual en carrito
     const cantidadActual = itemEnCarrito ? itemEnCarrito.cantidad : 0;
 
     // Validar stock disponible
     if (cantidadActual >= producto.stock) {
-      alert("❌ No hay más stock disponible para este producto.");
+      alert("No hay más stock disponible para este producto.");
       return;
     }
 
@@ -61,17 +56,12 @@ if (producto) {
       id: producto.id,
       nombre: producto.nombre,
       precio: producto.precio,
-      cantidad: 1, // o la cantidad que quieras sumar
+      cantidad: 1,
     });
 
     // Actualizar visualmente el stock
     const stockRestante = producto.stock - (cantidadActual + 1);
     document.getElementById("stockDisp").textContent = stockRestante;
-
-    // Si justo se acaba el stock
-    if (stockRestante === 0) {
-      alert("⚠️ Se acaba de agotar el stock de este producto.");
-    }
 
     renderCarrito();
   });
@@ -79,5 +69,4 @@ if (producto) {
   contenedor.innerHTML = "<p>Producto no encontrado.</p>";
 }
 
-// Render inicial del carrito
 renderCarrito();
