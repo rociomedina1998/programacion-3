@@ -85,7 +85,6 @@ footer {
   align-items: end;
   justify-content: space-between;
   width: 100%;
-  padding: 0 1rem;
 }
 
 .containerCarrito {
@@ -93,6 +92,10 @@ footer {
   align-items: center;
   justify-content: flex-end;
   font-weight: 700;
+}
+
+.containerNavbar ul {
+  margin-left: 8px;
 }
 
 #btnCarrito {

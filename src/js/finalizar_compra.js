@@ -1,24 +1,8 @@
-// === FINALIZAR COMPRA ===
-
-// Recupera todos los productos guardados en el localStorage y los devuelve como un array.
-//Obtiene todas las claves guardadas en localStorage.
-// Recorre cada clave y verifica si corresponde a un producto válido.
 function obtenerCarrito() {
-    const keys = Object.keys(localStorage);
-    const carrito = [];
-
-    keys.forEach((key) => {
-        const prod = JSON.parse(localStorage.getItem(key));
-        if (prod && prod.id) {
-            carrito.push(prod);
-        }
-    });
-
-    return carrito;
+    const data = localStorage.getItem("carrito");
+    return data ? JSON.parse(data) : [];
 }
 
-// Muestra en pantalla los productos guardados en el carrito
-// y calcula el total de la compra.
 function renderListaCarrito() {
     const contenedor = document.querySelector("#listaCarrito");
     const totalEl = document.querySelector("#totalCompra");
@@ -48,6 +32,30 @@ function renderListaCarrito() {
     totalEl.textContent = `Total: $${total.toFixed(2)}`;
 }
 
+function mostrarCartelExito() {
+    const overlay = document.createElement("div");
+    overlay.classList.add("overlay-exito");
+
+    overlay.innerHTML = `
+    <div class="cartel-exito">
+      <h2>¡Compra realizada con éxito!</h2>
+      <p>Gracias por tu compra en <strong>Punto y Coma</strong>.</p>
+      <p>Serás redirigido al inicio en unos segundos...</p>
+    </div>
+  `;
+
+    document.body.appendChild(overlay);
+
+    setTimeout(() => {
+        overlay.classList.add("mostrar");
+    }, 100);
+
+    // Redirige luego de 4 segundos
+    setTimeout(() => {
+        window.location.href = "../../index.html";
+    }, 4000);
+}
+
 document.addEventListener("DOMContentLoaded", () => {
     renderListaCarrito();
 
@@ -55,24 +63,19 @@ document.addEventListener("DOMContentLoaded", () => {
     form.addEventListener("submit", (e) => {
         e.preventDefault();
 
-        // Validar inputs
         const nombre = form.nombre.value.trim();
         const email = form.email.value.trim();
         const direccion = form.direccion.value.trim();
-        const telefono = form.telefono.value.trim();
 
-        if (!nombre || !email || !direccion || !telefono ) {
+        if (!nombre || !email || !direccion) {
             alert("Por favor, completá todos los campos.");
             return;
         }
 
         // Vaciar carrito
-        const carrito = obtenerCarrito();
-        carrito.forEach((item) => localStorage.removeItem(item.id));
+        localStorage.removeItem("carrito");
 
-        alert("Su pedido se realizó con éxito. ¡Gracias por su compra!");
-
-        // Redirigir al inicio
-        window.location.href = "../../index.html";
+        // Mostrar cartel animado
+        mostrarCartelExito();
     });
 });
