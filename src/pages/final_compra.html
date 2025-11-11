@@ -10,18 +10,8 @@
     <link rel="stylesheet" href="../../styles/productos.css" />
     <link rel="stylesheet" href="../../styles/final_compra.css" />
     <script type="module" src="../js/finalizar_compra.js"></script>
-    <script type="module" src="../js/carrito.js"></script>
 </head>
-<script>
-    document.addEventListener("DOMContentLoaded", () => {
-        // Oculta el botón y el dropdown del carrito en la página de finalizar compra
-        const btnCarrito = document.querySelector("#btnCarrito");
-        const carritoDropdown = document.querySelector("#carritoDropdown");
 
-        if (btnCarrito) btnCarrito.style.display = "none";
-        if (carritoDropdown) carritoDropdown.style.display = "none";
-    });
-</script>
 
 <body>
     <header class="cabecera">
@@ -32,10 +22,6 @@
                 <li><a href="./catalogo.html">Productos</a></li>
                 <li><a href="./contactos.html">Contactos</a></li>
             </ul>
-            <div class="containerCarrito">
-                <button id="btnCarrito">Carrito (0)</button>
-                <div id="carritoDropdown" class="dropdown-carrito oculto"></div>
-            </div>
         </nav>
     </header>
 
