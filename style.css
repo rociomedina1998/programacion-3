@@ -138,7 +138,6 @@
 
     .footer {
         grid-area: footer;
-        grid-area: footer;
         background: linear-gradient(90deg, #e3e3e3 60%, #f5f5f5 100%);
         font: bold;
         text-align: center;
@@ -207,6 +206,22 @@
             transform: translateY(-50%);
         }
     }
+
+    .body-container {
+        .main {
+            .catalogo {
+                flex-direction: column !important;
+                align-items: center;
+                gap: 1rem;
+
+                .producto {
+                    width: 100%;
+                    max-width: 320px;
+                    margin: 0 auto;
+                }
+            }
+        }
+    }
 }
 
 @media (max-width: 480px) {
@@ -227,6 +242,12 @@
                 }
             }
         }
+    }
+
+    .body-container .main .catalogo .producto {
+        width: 100%;
+        max-width: 280px;
+        padding: 0.8rem;
     }
 }
 

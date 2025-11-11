@@ -83,15 +83,6 @@
   background: #3f6d8a;
 }
 
-/* Footer */
-footer {
-  text-align: center;
-  padding: 1rem;
-  background: #b3a799;
-  color: #333;
-  margin-top: 2rem;
-}
-
 #categoria,
 button[type="submit"] {
   padding: 0.5rem;
