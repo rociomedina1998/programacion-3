@@ -124,3 +124,24 @@
   color: #333;
   transition: background 0.2s;
 }
+
+.btnFinalizar {
+  display: block;
+  width: 100%;
+  margin-top: 10px;
+  padding: 8px 0;
+  background: #4CAF50;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 14px;
+  transition: background 0.2s ease;
+}
+
+.btnFinalizar:hover {
+  background: #45a049;
+}
+
+
