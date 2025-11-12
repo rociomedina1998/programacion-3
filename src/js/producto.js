@@ -1,5 +1,4 @@
 import { agregarAlCarrito, renderCarrito } from "./carrito.js";
-import GetCatalogo from "./utils/reqCatalogo.js";
 
 const productos = JSON.parse(localStorage.getItem("catalogo")) || [];
 

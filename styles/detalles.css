@@ -1,4 +1,4 @@
-.containerPageProd {
+.detalle-container {
     width: max-content;
     margin: auto;
     padding: 1rem;
@@ -68,7 +68,7 @@
 }
 
 @media (max-width: 600px) {
-    .containerPageProd .containerData {
+    .detalle-container .containerData {
         flex-direction: column;
     }
 }
