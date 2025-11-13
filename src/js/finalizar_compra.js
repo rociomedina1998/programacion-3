@@ -1,4 +1,5 @@
 import { obtenerCarrito } from "./carrito.js";
+import showToast from "./helpers/toast.js";
 
 function renderListaCarrito() {
   const contenedor = document.querySelector("#listaCarrito");
@@ -10,8 +11,6 @@ function renderListaCarrito() {
   }
 
   const carrito = obtenerCarrito();
-
-  console.log("Contenido del carrito en finalizar_compra:", carrito);
 
   contenedor.innerHTML = "";
 
@@ -79,14 +78,14 @@ document.addEventListener("DOMContentLoaded", () => {
     const direccion = form.direccion.value.trim();
 
     if (!nombre || !email || !direccion) {
-      alert("Por favor, completá todos los campos.");
+      showToast("Por favor, completá todos los campos.", "warning");
       return;
     }
 
     // Confirmar que hay productos para comprar
     const carrito = obtenerCarrito();
     if (!Array.isArray(carrito) || carrito.length === 0) {
-      alert("El carrito está vacío, no podés finalizar la compra.");
+      showToast("El carrito está vacío, no podés finalizar la compra.", "error");
       return;
     }
 

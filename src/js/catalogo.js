@@ -12,11 +12,9 @@ cards.style.display = "none";
 async function cargarCatalogo() {
   try {
     const products = await GetCatalogo();
-    console.log(products);
 
     // Detectar si hay path o no
     const path = window.location.pathname;
-    console.log("Path actual:", path);
 
     // Si no hay path (o es "/"), mostrar solo 5 productos
     const productosAMostrar =

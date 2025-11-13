@@ -31,7 +31,7 @@ if (producto) {
         <p><em>Autor:</em> ${producto.author}</p>
       </div>
       <div class='containerDescription'>
-        <p>${producto.descripcion}</p>
+        <p>${producto.descripcion ? producto.descripcion : "Descripcion no disponible." }</p>
       </div>
       <div class='containerBtn'>
         <button id="btnAgregar">Agregar al carrito</button>
@@ -41,27 +41,13 @@ if (producto) {
 
   // Evento para agregar al carrito
   document.getElementById("btnAgregar").addEventListener("click", () => {
-    const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
-    const itemEnCarrito = carrito.find((item) => item.id === producto.id);
-    const cantidadActual = itemEnCarrito ? itemEnCarrito.cantidad : 0;
-
-    // Validar stock disponible
-    if (cantidadActual >= producto.stock) {
-      alert("No hay más stock disponible para este producto.");
-      return;
-    }
-
-    // Si hay stock, agregar al carrito
     agregarAlCarrito({
       id: producto.id,
       nombre: producto.nombre,
       precio: producto.precio,
-      cantidad: 1,
+      cantidad: (producto.cantidad = +1),
+      stock: producto.stock,
     });
-
-    // Actualizar visualmente el stock
-    const stockRestante = producto.stock - (cantidadActual + 1);
-    document.getElementById("stockDisp").textContent = stockRestante;
 
     renderCarrito();
   });

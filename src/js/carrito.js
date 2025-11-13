@@ -62,7 +62,6 @@ export function renderCarrito() {
     btnMas.className = "cart-btn";
     btnMas.addEventListener("click", (e) => {
       e.stopPropagation();
-      console.log(item, item.stock);
       if (item.cantidad >= item.stock) {
         showToast("Se alcanzo el limite de stock", "error");
         return;
@@ -153,7 +152,6 @@ export function renderCarrito() {
 export function agregarAlCarrito(producto) {
   const carrito = obtenerCarrito();
   const prodExistente = carrito.find((p) => p.id === producto.id);
-  console.log(producto);
 
   if (prodExistente) {
     if (prodExistente.cantidad < producto.stock) {
@@ -176,7 +174,6 @@ document.addEventListener("click", (e) => {
   // 1. Agregar al carrito
   if (e.target.classList.contains("addCardBtn")) {
     const productoEl = e.target.closest(".producto");
-    console.log(productoEl);
 
     const producto = {
       id: productoEl.dataset.id,
