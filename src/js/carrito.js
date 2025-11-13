@@ -3,7 +3,7 @@
 import showToast from "./helpers/toast.js";
 
 // Obtener carrito desde localStorage
-function obtenerCarrito() {
+export function obtenerCarrito() {
   const data = localStorage.getItem("carrito");
   return data ? JSON.parse(data) : [];
 }
@@ -121,7 +121,26 @@ export function renderCarrito() {
       }
     });
 
+    // Botón Finalizar Compra 
+    const btnFinalizar = document.createElement("button");
+    btnFinalizar.textContent = "Finalizar compra";
+    btnFinalizar.classList.add("btnFinalizar");
+
+    // Redirige a la página de finalización
+    btnFinalizar.addEventListener("click", () => {
+      window.location.href = "./src/pages/final_compra.html";
+    });
+
     dropdown.appendChild(btnVaciar);
+    dropdown.appendChild(btnFinalizar);
+
+    // Redirige a la página de finalización
+    btnFinalizar.addEventListener("click", () => {
+      window.location.href = "./src/pages/final_compra.html";
+    });
+
+    dropdown.appendChild(btnVaciar);
+    dropdown.appendChild(btnFinalizar);
   } else {
     dropdown.innerHTML = "<p class='cart-empty'>Carrito vacío</p>";
   }
@@ -192,11 +211,14 @@ document.addEventListener("click", (e) => {
 
 // Toggle mostrar/ocultar carrito con animación
 const btnCarritoEl = document.querySelector("#btnCarrito");
-btnCarritoEl.addEventListener("click", (e) => {
-  e.stopPropagation();
-  const dropdown = document.querySelector("#carritoDropdown");
-  dropdown.classList.toggle("mostrar");
-});
+if (btnCarritoEl) {
+  btnCarritoEl.addEventListener("click", (e) => {
+    e.stopPropagation();
+    const dropdown = document.querySelector("#carritoDropdown");
+    dropdown.classList.toggle("mostrar");
+  });
+}
+
 
 // Cerrar carrito si se hace clic fuera
 document.addEventListener("click", (e) => {
@@ -208,5 +230,7 @@ document.addEventListener("click", (e) => {
   dropdown.classList.remove("mostrar");
 });
 
-// Render inicial
-renderCarrito();
+// Render inicial excepto que este en la pagina de finalizar_compra
+if (!window.location.pathname.includes("final_compra.html")) {
+  renderCarrito();
+}
