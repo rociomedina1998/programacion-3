@@ -141,6 +141,7 @@
         background: linear-gradient(90deg, #e3e3e3 60%, #f5f5f5 100%);
         font: bold;
         text-align: center;
+        padding: 20px;
     }
 }
 
