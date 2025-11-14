@@ -1,6 +1,7 @@
 import { agregarAlCarrito, renderCarrito } from "./carrito.js";
+import GetCatalogo from "./utils/reqCatalogo.js";
 
-const productos = JSON.parse(localStorage.getItem("catalogo")) || [];
+const productos = await GetCatalogo();
 
 // Leer parámetro ID de la URL
 const params = new URLSearchParams(window.location.search);
