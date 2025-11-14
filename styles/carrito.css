@@ -1,7 +1,6 @@
 #carritoDropdown {
   position: absolute;
-  top: 150px;
-  right: 10px;
+  top: calc(100% + 20px);
   width: 260px;
   background: #fff;
   border: 1px solid #ddd;

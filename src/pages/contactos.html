@@ -1,172 +1,123 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <link
-      rel="icon"
-      type="image/x-icon"
-      href="../../assets/favicon/favicon.ico"
-    />
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Contactos | Punto y coma</title>
+	<head>
+		<link
+			rel="icon"
+			type="image/x-icon"
+			href="../../assets/favicon/favicon.ico"
+		/>
+		<meta charset="UTF-8" />
+		<link
+			rel="icon"
+			type="image/x-icon"
+			href="../../assets/favicon/favicon.ico"
+		/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Contactos | Punto y coma</title>
+		<link rel="stylesheet" href="../../style.css" />
+		<link rel="stylesheet" href="../../styles/contact.css" />
+		<link rel="stylesheet" href="../../styles/carrito.css" />
+		<script type="module" src="./src/js/carrito.js" defer></script>
+		<script type="module" src="../js/carrito.js"></script>
+		<link
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+			rel="stylesheet"
+		/>
+		<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+		<link
+			rel="stylesheet"
+			href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
+		/>
+		<script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+	</head>
 
-    <link rel="stylesheet" href="../../styles/common.css" />
-    <link rel="stylesheet" href="../../styles/contact.css" />
-    <link rel="stylesheet" href="../../styles/carrito.css" />
-
-    <!-- Toastify -->
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
-    />
-    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
-
-    <!-- Bootstrap -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  </head>
-
-  <body class="container-fluid">
-    <header class="cabecera row d-flex flex-column justify-content-center">
-      <div class="col-12">
-        <h1>Punto y Coma</h1>
-        <div class="row">
-          <nav class="col-8 navbar navbar-expand-lg">
-            <div class="container-fluid">
-              <button
-                class="navbar-toggler"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#navbarNav"
-                aria-controls="navbarNav"
-                aria-expanded="false"
-                aria-label="Toggle navigation"
-              >
-                <span class="navbar-toggler-icon"></span>
-              </button>
-              <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav flex-row justify-content-evenly">
-                  <li class="nav-item">
-                    <a class="nav-link" href="../../index.html">Inicio</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="./catalogo.html">Productos</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#"
-                      >Contactos</a
-                    >
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </nav>
-          <div class="col-4 containerCarrito">
-            <button id="btnCarrito"></button>
-            <div id="carritoDropdown" class="dropdown-carrito oculto"></div>
-          </div>
-        </div>
-      </div>
-    </header>
-
-    <main class="row">
-      <section
-        class="contacts col-9 m-auto h-100 d-flex flex-column align-items-center justify-content-center text-center"
-      >
-        <h2>Contacto</h2>
-        <div class="container-fluid">
-          <p>
-            ¿Tenes alguna duda o consulta? Completa el formulario y te
-            responderemos a la brevedad
-          </p>
-          <form id="contactForm" class="container-fluid" action="">
-            <div class="row g-2 justify-content-center">
-              <div class="col-12 col-md form-floating">
-                <input
-                  type="text"
-                  class="form-control"
-                  id="inputNombre"
-                  placeholder="Nombre"
-                  required
-                />
-                <label for="inputNombre">Nombre</label>
-              </div>
-              <div class="col-12 col-md form-floating">
-                <input
-                  type="email"
-                  class="form-control"
-                  id="inputEmail"
-                  placeholder="Email"
-                  required
-                />
-                <label for="inputEmail">Email</label>
-              </div>
-            </div>
-            <div class="row mt-3">
-              <div class="col-12 form-floating">
-                <textarea
-                  class="form-control"
-                  id="inputMensaje"
-                  placeholder="Mensaje"
-                  style="height: 100px"
-                  required
-                ></textarea>
-                <label for="inputMensaje">Mensaje</label>
-              </div>
-            </div>
-            <div class="row mt-3">
-              <div class="col-12 text-center">
-                <button type="submit" class="btn btn-primary w-100">
-                  Enviar
-                </button>
-              </div>
-            </div>
-          </form>
-        </div>
-      </section>
-    </main>
-
-    <footer class="row">
-      <p>
-        &copy; 2025 Punto y coma. Instagram: @libreriapuntoycoma Cel:
-        03442-15508582
-        <a href="http://wa.me/5493442508582" target="_blank"
-          >Nuestro WhatsApp</a
-        >
-      </p>
-    </footer>
-
-    <script>
-      document
-        .getElementById("contactForm")
-        .addEventListener("submit", function (event) {
-          event.preventDefault();
-
-          Toastify({
-            text: "Formulario enviado correctamente ✅",
-            duration: 4000,
-            close: true,
-            gravity: "bottom",
-            position: "left",
-            stopOnFocus: true,
-            style: {
-              background: "#4CAF50",
-              color: "#fff",
-              borderRadius: "8px",
-              boxShadow: "0px 4px 10px rgba(0,0,0,0.2)",
-              fontSize: "14px",
-              padding: "10px 18px",
-              fontFamily: "Segoe UI, sans-serif",
-              width: "fit-content",
-            },
-          }).showToast();
-
-          event.target.reset();
-        });
-    </script>
-  </body>
+	<body>
+		<div class="body-container">
+			<header class="header">
+				<h1>Punto y coma</h1>
+				<nav class="navbar">
+					<button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
+						<span class="hamburger-line"></span>
+						<span class="hamburger-line"></span>
+						<span class="hamburger-line"></span>
+					</button>
+					<ul class="navbar-list" id="navbarList">
+						<li class="navbar-item"><a href="../../index.html">Inicio</a></li>
+						<li class="navbar-item"><a href="./catalogo.html">Productos</a></li>
+						<li class="navbar-item"><a href="#">Contactos</a></li>
+					</ul>
+					<div class="containerCarrito">
+						<button id="btnCarrito" aria-label="Abrir carrito de compras">
+							Carrito (0)
+						</button>
+						<div id="carritoDropdown" class="dropdown-carrito oculto"></div>
+					</div>
+				</nav>
+			</header>
+			<main class="main">
+				<section
+					class="contacts col-9 m-auto h-100 d-flex flex-column align-items-center justify-content-center text-center"
+				>
+					<h2>Contacto</h2>
+					<div class="container-fluid">
+						<p>
+							¿Tenes alguna duda o consulta? Completa el formulario y te
+							responderemos a la brevedad
+						</p>
+						<form class="container-fluid" action="">
+							<div class="row g-2 justify-content-center">
+								<div class="col-12 col-md form-floating">
+									<input
+										type="text"
+										class="form-control"
+										id="inputNombre"
+										placeholder="Nombre"
+									/>
+									<label for="inputNombre">Nombre</label>
+								</div>
+								<div class="col-12 col-md form-floating">
+									<input
+										type="email"
+										class="form-control"
+										id="inputEmail"
+										placeholder="Email"
+									/>
+									<label for="inputEmail">Email</label>
+								</div>
+							</div>
+							<div class="row mt-3">
+								<div class="col-12 form-floating">
+									<textarea
+										class="form-control"
+										id="inputMensaje"
+										placeholder="Mensaje"
+										style="height: 100px"
+									></textarea>
+									<label for="inputMensaje">Mensaje</label>
+								</div>
+							</div>
+							<div class="row mt-3">
+								<div class="col-12 text-center">
+									<button type="submit" class="btn btn-primary w-100">
+										Enviar
+									</button>
+								</div>
+							</div>
+						</form>
+					</div>
+				</section>
+			</main>
+			<footer class="footer">
+				<p>
+					&copy; 2025 Punto y coma. Instagram: @libreriapuntoycoma Cel:
+					03442-15508582
+					<a href="http://wa.me/5493442508582" target="_blank"
+						>Nuestro WhatsApp</a
+					>
+				</p>
+			</footer>
+		</div>
+		<script type="module" src="../js/menu.js" defer></script>
+	</body>
 </html>

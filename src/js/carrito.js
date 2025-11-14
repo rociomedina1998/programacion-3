@@ -13,6 +13,24 @@ function guardarCarrito(carrito) {
   localStorage.setItem("carrito", JSON.stringify(carrito));
 }
 
+// Función auxiliar para determinar la ruta correcta a final_compra.html
+function getRutaFinalCompra() {
+  const path = window.location.pathname;
+  
+  // Si estamos en index.html o raíz del proyecto
+  if (path === "/" || path === "" || path.includes("index.html") || !path.includes("/pages/")) {
+    return "./src/pages/final_compra.html";
+  }
+  
+  // Si estamos dentro de la carpeta pages (catalogo.html, producto.html, contactos.html)
+  if (path.includes("/pages/")) {
+    return "./final_compra.html";
+  }
+  
+  // Fallback por si hay otras rutas
+  return "../pages/final_compra.html";
+}
+
 // Renderizar carrito dentro del dropdown
 export function renderCarrito() {
   const dropdown = document.querySelector("#carritoDropdown");
@@ -126,16 +144,11 @@ export function renderCarrito() {
     btnFinalizar.classList.add("btnFinalizar");
 
     // Redirige a la página de finalización
-    btnFinalizar.addEventListener("click", () => {
-      window.location.href = "./src/pages/final_compra.html";
-    });
-
-    dropdown.appendChild(btnVaciar);
-    dropdown.appendChild(btnFinalizar);
-
-    // Redirige a la página de finalización
-    btnFinalizar.addEventListener("click", () => {
-      window.location.href = "./src/pages/final_compra.html";
+    btnFinalizar.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const rutaCorrecta = getRutaFinalCompra();
+      console.log(`Navegando a: ${rutaCorrecta} desde: ${window.location.pathname}`); // Para debug
+      window.location.href = rutaCorrecta;
     });
 
     dropdown.appendChild(btnVaciar);

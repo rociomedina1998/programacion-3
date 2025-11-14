@@ -22,7 +22,8 @@ async function cargarCatalogo() {
 
     // Ocultar el spinner
     loader.style.display = "none";
-    cards.style.display = "grid";
+    cards.style.display = "";
+    cards.classList.add("catalogo");
 
     productosAMostrar.forEach((prod) => {
       const productoDiv = document.createElement("div");

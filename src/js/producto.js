@@ -1,5 +1,4 @@
 import { agregarAlCarrito, renderCarrito } from "./carrito.js";
-import GetCatalogo from "./utils/reqCatalogo.js";
 
 const productos = JSON.parse(localStorage.getItem("catalogo")) || [];
 
@@ -15,28 +14,28 @@ const contenedor = document.getElementById("detalleProducto");
 
 if (producto) {
   contenedor.innerHTML = `
-    <div class='containerPageProd'>
-      <div class='containerTitle'>
-        <h2 class='titlePageProd'>${producto.nombre}</h2>
-      </div>
+    <div class='containerData'>
       <div class='containerImg'>
         <img src="${producto.img}" alt="${producto.nombre}">
       </div>
-      <div class='containerPrice'>
-        <p><strong>Precio:</strong> $${producto.precio}</p>
-      </div>
-      <div class='containerData'>
-        <p><em>Categoría:</em> ${producto.categoria}</p>
-        <p><em>Stock disponible:</em> <span id="stockDisp">${producto.stock}</span></p>
-        <p><em>Autor:</em> ${producto.author}</p>
-      </div>
-      <div class='containerDescription'>
-        <p>${producto.descripcion ? producto.descripcion : "Descripcion no disponible." }</p>
-      </div>
-      <div class='containerBtn'>
-        <button id="btnAgregar">Agregar al carrito</button>
+      <div class='containerInfo'>
+        <div class='containerPrice'>
+          <p><strong>Precio:</strong> <span>$${producto.precio}</span></p>
+        </div>
+        <div class='containerData'>
+          <p><em>Categoría:</em> ${producto.categoria}</p>
+          <p><em>Stock:</em> ${producto.stock}</p>
+          <p>Autor: ${producto.author}}</p>
+        </div>
+        <div class='containerDescription'>
+          <p>${producto.descripcion ? producto.descripcion : "Descripción no disponible."}</p>
+        </div>
+        <div class='containerBtn'>
+      <button id="btnAgregar" class="addToCartButton">Agregar al carrito</button>
+    </div>
       </div>
     </div>
+  </div>
   `;
 
   // Evento para agregar al carrito
