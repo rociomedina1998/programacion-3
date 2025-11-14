@@ -18,7 +18,7 @@ async function cargarCatalogo() {
 
     // Si no hay path (o es "/"), mostrar solo 5 productos
     const productosAMostrar =
-      path === "/" || path === "" || path.includes("index") ? products.slice(0, 5) : products;
+      path === "/" || path === "/programacion-3/" || path === "" || path.includes("index") ? products.slice(0, 5) : products;
 
     // Ocultar el spinner
     loader.style.display = "none";
