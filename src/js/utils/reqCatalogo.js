@@ -13,12 +13,16 @@ async function GetCatalogo() {
       return JSON.parse(cache);
     }
 
-    // Si no hay cache o venció, hacer fetch
-    const res = await fetch("https://gutendex.com/books/");
+    // --- 🔧 URL con proxy CORS (AllOrigins) ---
+    const apiUrl = "https://gutendex.com/books/";
+    const proxiedUrl = `https://api.allorigins.win/raw?url=${encodeURIComponent(apiUrl)}`;
+
+    // Hacer fetch usando el proxy
+    const res = await fetch(proxiedUrl);
     if (!res.ok) throw new Error("Network response was not ok");
 
     const data = await res.json();
-    console.log("🌐 Cargando catálogo desde API");
+    console.log("🌐 Cargando catálogo desde API (con proxy)");
 
     const productos =
       data?.results?.map((item) => ({
@@ -33,11 +37,10 @@ async function GetCatalogo() {
         author: item?.authors?.[0]?.name || "Desconocido",
       })) || [];
 
-    localStorage.setItem("catalogo", JSON.stringify(productos));
-
     // Guardar en cache
     localStorage.setItem(cacheKey, JSON.stringify(productos));
     localStorage.setItem(cacheTimeKey, Date.now());
+
     return productos;
   } catch (error) {
     console.error("Error al obtener catálogo:", error);
