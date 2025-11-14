@@ -208,19 +208,15 @@
         }
     }
 
-    .body-container {
-        .main {
-            .catalogo {
-                flex-direction: column !important;
-                align-items: center;
-                gap: 1rem;
+    .body-container .main .catalogo {
+        flex-direction: column;
+        align-content: center;
+        gap: 1rem;
 
-                .producto {
-                    width: 100%;
-                    max-width: 320px;
-                    margin: 0 auto;
-                }
-            }
+        .producto {
+            width: 100%;
+            max-width: 320px;
+            margin: 0 auto;
         }
     }
 }
