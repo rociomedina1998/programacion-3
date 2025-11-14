@@ -207,10 +207,12 @@ document.addEventListener("click", (e) => {
     !e.target.classList.contains("addCardBtn")
   ) {
     const id = e.target.closest(".producto").dataset.id;
+    const path = window.location.pathname;
     if (
-      window.location.pathname.includes("index") ||
-      window.location.pathname === "/" ||
-      window.location.pathname.trim() === ""
+      path.includes("index") ||
+      path === "/" ||
+      path === "/programacion-3/" ||
+      path.trim() === ""
     ) {
       window.location.href = `./src/pages/producto.html?id=${id}`;
       return;
