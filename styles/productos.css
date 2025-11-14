@@ -120,3 +120,19 @@ button[type="submit"]:hover {
     transform: rotate(360deg);
   }
 }
+
+.filtro {
+  label {
+    margin-right: 0.5rem;
+    font-weight: bold;
+    font-size: 14px;
+  }
+
+  select {
+    border-radius: 4px;
+    @media (max-width: 580px) {
+      max-width: 200px;
+      
+    }
+  }
+}
