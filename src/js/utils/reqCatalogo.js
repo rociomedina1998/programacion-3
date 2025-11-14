@@ -1,7 +1,7 @@
 async function GetCatalogo() {
   const cacheKey = "catalogoLibros";
   const cacheTimeKey = "catalogoTimestamp";
-  const CACHE_DURATION = 1000 * 60 * 10; // 10 minutos
+  const CACHE_DURATION = 1000 * 60 * 60; // 60 minutos
 
   try {
     const cache = localStorage.getItem(cacheKey);
@@ -20,14 +20,12 @@ async function GetCatalogo() {
     const data = await res.json();
     console.log("🌐 Cargando catálogo desde API");
 
-
-
     const productos =
       data?.results?.map((item) => ({
         id: item.id,
         nombre: item.title.split(";")[0].trim(),
         img: item?.formats?.["image/jpeg"] || "placeholder.jpg",
-        precio: (Math.random() * 1000 + 50).toFixed(2), // Precio aleatorio entre 50 y 1050
+        precio: (Math.random() * 2000 + 50).toFixed(2), // Precio aleatorio entre 50 y 2050
         descripcion: item?.sumaries?.[0],
         categoria:
           item?.bookshelves?.[0]?.replace("Category: ", "").trim() || "General",
@@ -40,7 +38,6 @@ async function GetCatalogo() {
     // Guardar en cache
     localStorage.setItem(cacheKey, JSON.stringify(productos));
     localStorage.setItem(cacheTimeKey, Date.now());
-      console.log(productos)
     return productos;
   } catch (error) {
     console.error("Error al obtener catálogo:", error);

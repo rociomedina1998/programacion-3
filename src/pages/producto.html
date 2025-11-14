@@ -1,49 +1,60 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <link rel="icon" type="image/x-icon" href="../../assets/favicon/favicon.ico" />
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Productos | Punto y coma</title>
-    <link rel="stylesheet" href="../../style.css" />
-    <link rel="stylesheet" href="../../styles/carrito.css" />
-    <link rel="stylesheet" href="../../styles/detalles.css" />
-  </head>
-  <body>
-    <div class="body-container">
-      <header class="header">
-      <h1>Punto y coma</h1>
-      <nav class="navbar">
-        <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
-          <span class="hamburger-line"></span>
-          <span class="hamburger-line"></span>
-          <span class="hamburger-line"></span>
-        </button>
-        <ul class="navbar-list" id="navbarList">
-          <li class="navbar-item"><a href="../../index.html">Inicio</a></li>
-          <li class="navbar-item"><a href="./catalogo.html">Productos</a></li>
-          <li class="navbar-item"><a href="./contactos.html">Contactos</a></li>
-        </ul>
-        <div class="containerCarrito">
-          <button id="btnCarrito" aria-label="Abrir carrito de compras">
-            Carrito (0)
-          </button>
-          <div id="carritoDropdown" class="dropdown-carrito oculto"></div>
-        </div>
-      </nav>
-    </header>
-    <main class="main">
-      <div id="detalleProducto" class="detalle-container"></div>
-    </main>
-    <footer class="footer">
-      <p>
-				&copy; 2025 Punto y coma. Instagram: @libreriapuntoycoma Cel:
-				03442-15508582
-				<a href="http://wa.me/5493442508582" target="_blank">Nuestro WhatsApp</a>
-			</p>
-    </footer>
-    </div>
-    <script type="module" src="../js/producto.js"></script>
-    <script type="module" src="../js/menu.js"></script>
-  </body>
+	<head>
+		<link
+			rel="icon"
+			type="image/x-icon"
+			href="../../assets/favicon/favicon.ico"
+		/>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Productos | Punto y coma</title>
+		<link rel="stylesheet" href="../../style.css" />
+		<link rel="stylesheet" href="../../styles/carrito.css" />
+		<link rel="stylesheet" href="../../styles/detalles.css" />
+		<link
+			rel="stylesheet"
+			href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
+		/>
+		<script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+	</head>
+	<body>
+		<div class="body-container">
+			<header class="header">
+				<h1>Punto y coma</h1>
+				<nav class="navbar">
+					<button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
+						<span class="hamburger-line"></span>
+						<span class="hamburger-line"></span>
+						<span class="hamburger-line"></span>
+					</button>
+					<ul class="navbar-list" id="navbarList">
+						<li class="navbar-item"><a href="../../index.html">Inicio</a></li>
+						<li class="navbar-item"><a href="./catalogo.html">Productos</a></li>
+						<li class="navbar-item">
+							<a href="./contactos.html">Contactos</a>
+						</li>
+					</ul>
+					<div class="containerCarrito">
+						<button id="btnCarrito"></button>
+						<div id="carritoDropdown" class="dropdown-carrito oculto"></div>
+					</div>
+				</nav>
+			</header>
+			<main class="main">
+				<div id="detalleProducto" class="detalle-container"></div>
+			</main>
+			<footer class="footer">
+				<p>
+					&copy; 2025 Punto y coma. Instagram: @libreriapuntoycoma Cel:
+					03442-15508582
+					<a href="http://wa.me/5493442508582" target="_blank"
+						>Nuestro WhatsApp</a
+					>
+				</p>
+			</footer>
+		</div>
+		<script type="module" src="../js/producto.js"></script>
+		<script type="module" src="../js/menu.js"></script>
+	</body>
 </html>

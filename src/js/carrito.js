@@ -1,5 +1,7 @@
 // === Carrito ===
 
+import showToast from "./helpers/toast.js";
+
 // Obtener carrito desde localStorage
 export function obtenerCarrito() {
   const data = localStorage.getItem("carrito");
@@ -63,6 +65,7 @@ export function renderCarrito() {
         item.cantidad -= 1;
       } else return;
       guardarCarrito(carrito);
+      showToast("Producto eliminado del carrito", "warning");
       renderCarrito();
     });
 
@@ -77,8 +80,13 @@ export function renderCarrito() {
     btnMas.className = "cart-btn";
     btnMas.addEventListener("click", (e) => {
       e.stopPropagation();
+      if (item.cantidad >= item.stock) {
+        showToast("Se alcanzo el limite de stock", "error");
+        return;
+      }
       item.cantidad += 1;
       guardarCarrito(carrito);
+      showToast("Producto agregado con exito", "success");
       renderCarrito();
     });
 
@@ -90,6 +98,7 @@ export function renderCarrito() {
       e.stopPropagation();
       const index = carrito.findIndex((p) => p.id === item.id);
       carrito.splice(index, 1);
+      showToast("Producto eliminado del carrito", "warning");
       guardarCarrito(carrito);
       renderCarrito();
     });
@@ -124,6 +133,7 @@ export function renderCarrito() {
       e.stopPropagation();
       if (confirm("¿Seguro que querés vaciar el carrito?")) {
         localStorage.removeItem("carrito");
+        showToast("Carrito vaciado con exito", "info");
         renderCarrito();
       }
     });
@@ -157,9 +167,15 @@ export function agregarAlCarrito(producto) {
   const prodExistente = carrito.find((p) => p.id === producto.id);
 
   if (prodExistente) {
-    prodExistente.cantidad += 1;
+    if (prodExistente.cantidad < producto.stock) {
+      prodExistente.cantidad += 1;
+      showToast("Producto agregado con exito", "success");
+    } else {
+      showToast("Se alcanzo el limite de stock", "error");
+    }
   } else {
     carrito.push({ ...producto, cantidad: 1 });
+    showToast("Producto agregado con exito", "success");
   }
 
   guardarCarrito(carrito);
@@ -176,6 +192,9 @@ document.addEventListener("click", (e) => {
       id: productoEl.dataset.id,
       nombre: productoEl.querySelector("h3").textContent,
       precio: parseInt(productoEl.dataset.precio),
+      stock: productoEl.dataset.cantidad
+        ? parseInt(productoEl.dataset.cantidad)
+        : Infinity,
     };
 
     agregarAlCarrito(producto);
